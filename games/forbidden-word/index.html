@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#c9b7ff" />
+    <title>不能说 — Tiny Games</title>
+    <link rel="stylesheet" href="forbidden-word.css" />
+    <script defer src="../../pwa.js"></script>
+    <script type="module" src="forbidden-word.js"></script>
+  </head>
+  <body>
+    <main class="game">
+      <header class="topbar">
+        <a class="back" href="../../" aria-label="回到游戏大厅">←</a>
+        <div>
+          <h1>不能说</h1>
+          <p>描述答案，但别碰到禁用词</p>
+        </div>
+      </header>
+
+      <section id="setup" class="panel">
+        <div class="rules-card">
+          <span aria-hidden="true">🎭</span>
+          <div>
+            <h2>两队同屏对战</h2>
+            <p>每队轮流出题。猜对加 1 分，说出禁用词扣 1 分。</p>
+          </div>
+        </div>
+        <div class="team-fields">
+          <label>队伍一<input id="teamA" maxlength="12" value="红队" /></label>
+          <label>队伍二<input id="teamB" maxlength="12" value="蓝队" /></label>
+        </div>
+        <fieldset>
+          <legend>每轮时间</legend>
+          <div class="duration-grid">
+            <label><input type="radio" name="duration" value="60" checked /><span>60 秒</span></label>
+            <label><input type="radio" name="duration" value="90" /><span>90 秒</span></label>
+          </div>
+        </fieldset>
+        <p class="round-note">默认进行 3 轮，每队每轮各有一次机会。</p>
+        <button id="start" class="primary" type="button">开始比赛</button>
+      </section>
+
+      <section id="handoff" class="panel center-panel" hidden>
+        <span class="big-emoji" aria-hidden="true">📣</span>
+        <p id="roundLabel" class="eyebrow"></p>
+        <h2 id="handoffTeam">轮到红队</h2>
+        <p>把手机交给这一队的描述者。</p>
+        <button id="ready" class="primary" type="button">我准备好了</button>
+      </section>
+
+      <section id="play" class="panel play-panel" hidden>
+        <div class="play-status">
+          <strong id="activeTeam">红队</strong>
+          <div><span id="timer">60</span> 秒</div>
+          <strong id="score">0 分</strong>
+        </div>
+        <div class="card">
+          <span class="card-kicker">请描述</span>
+          <strong id="answer">熊猫</strong>
+          <p>千万不能说：</p>
+          <div id="forbidden" class="forbidden-list"></div>
+        </div>
+        <div class="turn-actions">
+          <button id="skip" class="secondary" type="button">跳过</button>
+          <button id="violation" class="danger" type="button">违规 −1</button>
+          <button id="correct" class="primary" type="button">猜对 +1</button>
+        </div>
+      </section>
+
+      <section id="results" class="panel center-panel" hidden>
+        <span class="big-emoji" aria-hidden="true">🏁</span>
+        <h2 id="winner">比赛结束</h2>
+        <div id="finalScores" class="final-scores"></div>
+        <button id="again" class="primary" type="button">再来一局</button>
+      </section>
+    </main>
+  </body>
+</html>

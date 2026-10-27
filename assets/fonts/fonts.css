@@ -1,0 +1,37 @@
+/* ══════════════════════════════════════════════════════════════
+   Self-hosted fonts — Fredoka One + Nunito, latin subset.
+
+   These used to come from fonts.googleapis.com, which is unreachable
+   from some networks and adds a third-party request (plus a render
+   delay) to every first visit. Serving them from this repo keeps the
+   hub dependency-free and lets the service worker precache them.
+
+   Both families are under the SIL Open Font License 1.1 — see
+   OFL-FredokaOne.txt and OFL-Nunito.txt in this directory.
+
+   Nunito is a variable font, so one file covers weights 400–800.
+   To regenerate: request the family from the Google Fonts CSS API and
+   keep the `latin` @font-face blocks.
+   ══════════════════════════════════════════════════════════════ */
+
+@font-face {
+  font-family: "Fredoka One";
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("fredoka-one-400.woff2") format("woff2");
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6,
+    U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122,
+    U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+@font-face {
+  font-family: "Nunito";
+  font-style: normal;
+  font-weight: 400 800;
+  font-display: swap;
+  src: url("nunito-variable.woff2") format("woff2");
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6,
+    U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122,
+    U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}

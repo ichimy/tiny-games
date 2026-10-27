@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#e4f6d8" />
+    <title>小小清理队 — Tiny Games</title>
+    <link rel="stylesheet" href="tiny-cleanup.css" />
+    <script defer src="../../pwa.js"></script>
+    <script type="module" src="tiny-cleanup.js"></script>
+  </head>
+  <body>
+    <main class="game">
+      <header class="topbar">
+        <a class="back" href="../../" aria-label="回到游戏大厅">←</a>
+        <div>
+          <h1 id="levelTitle">收落叶</h1>
+          <p id="levelVerb">点掉落叶</p>
+        </div>
+        <button id="restart" class="restart" type="button">重开</button>
+      </header>
+
+      <div class="progress">
+        <div class="progress-track" aria-hidden="true">
+          <span id="progressFill"></span>
+        </div>
+        <strong id="progressText" aria-live="polite">0 / 8</strong>
+      </div>
+
+      <section id="scene" class="scene" aria-label="清理游戏区域"></section>
+
+      <div id="finish" class="finish" hidden>
+        <div class="finish-card">
+          <span class="trophy" aria-hidden="true">🏆</span>
+          <strong>清理完成！</strong>
+          <p>小手真能干。</p>
+          <button id="playAgain" class="primary" type="button">再玩一次</button>
+        </div>
+      </div>
+    </main>
+  </body>
+</html>

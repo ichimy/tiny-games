@@ -55,6 +55,14 @@ canvas{display:block;}
 #gameover .subtitle{color:rgba(255,255,255,0.6);font-size:15px;margin-bottom:28px;text-align:center;padding:0 32px;}
 .go-btn{background:linear-gradient(135deg,#c084fc,#ec4899);color:#fff;border:none;border-radius:100px;font-size:17px;font-weight:800;padding:15px 44px;cursor:pointer;margin:6px;min-height:56px;box-shadow:0 6px 24px rgba(192,132,252,0.4);}
 </style>
+
+<!-- PWA -->
+<link rel="manifest" href="../../manifest.json" />
+<meta name="mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="default" />
+<meta name="apple-mobile-web-app-title" content="Tiny Games" />
+<script defer src="../../pwa.js"></script>
 </head>
 <body>
 <canvas id="c"></canvas>
@@ -110,7 +118,9 @@ canvas{display:block;}
   </div>
 </div>
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<!-- three.js r128 (MIT, © 2010-2021 Three.js Authors) vendored locally so the
+     game also works offline and on networks where the CDN is unreachable. -->
+<script src="three.min.js"></script>
 <script>
 // ═══════════════════════════════════════════════════════════
 // COLOUR PALETTES

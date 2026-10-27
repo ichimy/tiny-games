@@ -20,7 +20,7 @@
 
     <!-- Open Graph -->
     <meta property="og:type" content="website" />
-    <meta property="og:url" content="https://tinygames.ravigopal.com/" />
+    <meta property="og:url" content="https://tiny-games.chimy.cn/" />
     <meta property="og:title" content="Tiny Games for Tiny Humans" />
     <meta
       property="og:description"
@@ -28,7 +28,7 @@
     />
     <meta
       property="og:image"
-      content="https://tinygames.ravigopal.com/og-image.png"
+      content="https://tiny-games.chimy.cn/og-image.png"
     />
     <meta property="og:locale" content="en_US" />
     <meta property="og:site_name" content="Tiny Games for Tiny Humans" />
@@ -42,19 +42,14 @@
     />
     <meta
       name="twitter:image"
-      content="https://tinygames.ravigopal.com/og-image.png"
+      content="https://tiny-games.chimy.cn/og-image.png"
     />
 
     <!-- Canonical -->
-    <link rel="canonical" href="https://tinygames.ravigopal.com/" />
+    <link rel="canonical" href="https://tiny-games.chimy.cn/" />
 
-    <!-- Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Nunito:wght@400;600;700;800&display=swap"
-      rel="stylesheet"
-    />
+    <!-- Fonts (self-hosted — no third-party request) -->
+    <link rel="stylesheet" href="assets/fonts/fonts.css" />
     <!-- Favicon -->
     <link rel="icon" href="assets/favicon.ico" />
     <link rel="apple-touch-icon" sizes="180x180" href="assets/apple-touch-icon.png">
@@ -66,8 +61,17 @@
     <!-- Stylesheet -->
     <link rel="stylesheet" href="styles.css" />
     <script>if(typeof CSSLayerBlockRule==='undefined'){document.currentScript.previousElementSibling.href='styles.compat.css';}</script>
-    <!-- JavaScript -->
-    <script src="scripts.js"></script>
+    <!-- Game catalog and JavaScript -->
+    <script src="games/registry.js"></script>
+    <script defer src="script.js"></script>
+
+    <!-- PWA -->
+    <link rel="manifest" href="manifest.json" />
+    <meta name="mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+    <meta name="apple-mobile-web-app-title" content="Tiny Games" />
+    <script defer src="pwa.js"></script>
   </head>
   <body>
     <!-- Keyboard: jump past nav straight to games -->
@@ -188,290 +192,20 @@
           Pick a <span>Game!</span> 🕹️
         </h2>
 
-        <div class="game-grid" role="list" aria-label="Available games">
-          <!-- ·· Balloon Pop — LIVE ·· -->
-          <a
-            href="games/balloon-pop/"
-            class="game-card"
-            role="listitem"
-            aria-label="Balloon Pop — tap floating balloons to pop them. Play now."
-          >
-            <div
-              class="card-thumb"
-              style="
-                background: linear-gradient(
-                  135deg,
-                  var(--card-balloon-from),
-                  var(--card-balloon-to)
-                );
-              "
-            >
-              <span class="thumb-emoji" aria-hidden="true">🎈</span>
-            </div>
-            <div class="card-body">
-              <div
-                class="card-tag"
-                style="
-                  background: var(--card-balloon-tag-bg);
-                  color: var(--card-balloon-tag-fg);
-                "
-              >
-                Tap &amp; Pop
-              </div>
-              <h3 class="card-name">Balloon Pop!</h3>
-              <p class="card-desc">
-                Tap the floating balloons to pop them. Simple, satisfying fun
-                for the littlest fingers.
-              </p>
-              <div class="card-meta">
-                <span class="play-label" aria-hidden="true">Play ▶</span>
-              </div>
-            </div>
-          </a>
-
-          <!-- ·· Paint Splat ·· -->
-          <a
-           href="games/paint-splat/"
-            class="game-card"
-            role="listitem"
-            aria-label="Paint Splat - Tap and drag to create rainbow paint splashes. Play now."
-          >
-            <div
-              class="card-thumb"
-              style="
-                background: linear-gradient(
-                  135deg,
-                  var(--card-paint-from),
-                  var(--card-paint-to)
-                );
-              "
-            >
-              <span class="thumb-emoji" aria-hidden="true">🎨</span>
-            </div>
-            <div class="card-body">
-              <div
-                class="card-tag"
-                style="
-                  background: var(--card-paint-tag-bg);
-                  color: var(--card-paint-tag-fg);
-                "
-              >
-                Create!
-              </div>
-              <h3 class="card-name">Paint Splat</h3>
-              <p class="card-desc">
-                Finger-paint a masterpiece! Splat, swipe, and smear bright
-                colours across the canvas.
-              </p>
-              <div class="card-meta">
-                <span class="play-label" aria-hidden="true">Play ▶</span>
-              </div>
-            </div>
-          </a>
-
-           <!-- ·· Do Anything! ·· -->
-           <a
-           href="games/do-anything/"
-            class="game-card"
-            role="listitem"
-            aria-label="Do Anything! - Tap, type, smash — every touch does something magical! Play now."
-          >
-            <div
-              class="card-thumb"
-              style="
-                background: linear-gradient(
-                  135deg,
-                  var(--card-rainbow-from),
-                  var(--card-rainbow-to)
-                );
-              "
-            >
-              <span class="thumb-emoji" aria-hidden="true">🔨</span>
-            </div>
-            <div class="card-body">
-              <div
-                class="card-tag"
-                style="
-                background: var(--card-rainbow-tag-bg);
-                color: var(--card-rainbow-tag-fg);
-              "
-              >
-                Do Anything!
-              </div>
-              <h3 class="card-name">Do Anything!</h3>
-              <p class="card-desc">
-                Tap, type, smash — every touch does something magical!
-              </p>
-              <div class="card-meta">
-                <span class="play-label" aria-hidden="true">Play ▶</span>
-              </div>
-            </div>
-          </a>
-
-          <!-- ·· Rainbow Sort — coming soon ·· -->
-          <a
-           href="games/rainbow-sort/"
-            class="game-card"
-            role="listitem"
-            aria-label="Rainbow Sort — drag the colourful blobs into the matching buckets. Learn colours while you play! Play now."
-          >
-
-            <div
-              class="card-thumb"
-              style="
-                background: linear-gradient(
-                  135deg,
-                  var(--card-rainbow-from),
-                  var(--card-rainbow-to)
-                );
-              "
-            >
-              <span class="thumb-emoji" aria-hidden="true">🌈</span>
-            </div>
-            <div class="card-body">
-              <div
-                class="card-tag"
-                style="
-                  background: var(--card-rainbow-tag-bg);
-                  color: var(--card-rainbow-tag-fg);
-                "
-              >
-                Color Match
-              </div>
-              <h3 class="card-name">Rainbow Sort</h3>
-              <p class="card-desc">
-                Drag the colourful blobs into the matching buckets. Learn
-                colours while you play!
-              </p>
-              <div class="card-meta">
-                <span class="play-label" aria-hidden="true">Play ▶</span>
-              </div>
-            </div>
-          </a>
-
-          <!-- ·· Star Catcher — coming soon ·· -->
-          <a
-          href="games/star-catcher/"
-            class="game-card"
-            role="listitem"
-            aria-label="Star Catcher — touch the falling stars before they disappear. Play now."
-          >
-          
-            <div
-              class="card-thumb"
-              style="
-                background: linear-gradient(
-                  135deg,
-                  var(--card-star-from),
-                  var(--card-star-to)
-                );
-              "
-            >
-              <span class="thumb-emoji" aria-hidden="true">⭐</span>
-            </div>
-            <div class="card-body">
-              <div
-                class="card-tag"
-                style="
-                  background: var(--card-star-tag-bg);
-                  color: var(--card-star-tag-fg);
-                "
-              >
-                Catch!
-              </div>
-              <h3 class="card-name">Star Catcher</h3>
-              <p class="card-desc">
-                Touch the falling stars before they disappear. How many can you
-                catch?
-              </p>
-              <div class="card-meta">
-                <span class="play-label" aria-hidden="true">Play ▶</span>
-              </div>
-            </div>
-          </a>
-
-          <!-- ·· Music Maker ·· -->
-          <a
-            href="games/music-maker/"
-            class="game-card"
-            role="listitem"
-            aria-label="Music Maker — tap the big colourful buttons to make funny sounds and build your own little song! Play now."
-          >
-            <div
-              class="card-thumb"
-              style="
-                background: linear-gradient(
-                  135deg,
-                  var(--card-music-from),
-                  var(--card-music-to)
-                );
-              "
-            >
-              <span class="thumb-emoji" aria-hidden="true">🎵</span>
-            </div>
-            <div class="card-body">
-              <div
-                class="card-tag"
-                style="
-                  background: var(--card-music-tag-bg);
-                  color: var(--card-music-tag-fg);
-                "
-              >
-                Music
-              </div>
-              <h3 class="card-name">Music Maker</h3>
-              <p class="card-desc">
-                Tap the big colourful buttons to make funny sounds and build
-                your own little song!
-              </p>
-              <div class="card-meta">
-                <span class="play-label" aria-hidden="true">Play ▶</span>
-              </div>
-            </div>
-          </a>
-
-          <!-- ·· Shape Sorter — coming soon ·· -->
-          <!-- <div
-            class="game-card card-coming"
-            role="listitem"
-            aria-label="Shape Sorter — coming soon"
-          >
-            <div class="coming-ribbon" aria-hidden="true">Coming Soon!</div>
-            <div
-              class="card-thumb"
-              style="
-                background: linear-gradient(
-                  135deg,
-                  var(--card-shape-from),
-                  var(--card-shape-to)
-                );
-              "
-            >
-              <span class="thumb-emoji" aria-hidden="true">🔷</span>
-            </div>
-            <div class="card-body">
-              <div
-                class="card-tag"
-                style="
-                  background: var(--card-shape-tag-bg);
-                  color: var(--card-shape-tag-fg);
-                "
-              >
-                Shapes
-              </div>
-              <h3 class="card-name">Shape Sorter</h3>
-              <p class="card-desc">
-                Drag the shapes into the matching holes. Circles, triangles,
-                squares and more!
-              </p>
-              <div class="card-meta">
-                <span class="sr-only">Coming soon</span>
-              </div>
-            </div>
-          </div> -->
-
-  
+        <div class="catalog-filters" role="group" aria-label="游戏分类">
+          <button class="catalog-filter is-active" data-category="all" aria-pressed="true">
+            全部 <span id="gameCount"></span>
+          </button>
+          <button class="catalog-filter" data-category="toddler" aria-pressed="false">幼儿玩</button>
+          <button class="catalog-filter" data-category="family" aria-pressed="false">全家玩</button>
         </div>
+        <div class="game-grid" id="gameCatalog" role="list" aria-label="游戏列表"></div>
+        <noscript>
+          <p class="noscript-note">
+            请启用 JavaScript。也可以直接打开
+            <a href="./games/balloon-pop/">Balloon Pop</a>。
+          </p>
+        </noscript>
       </section>
     </main>
 

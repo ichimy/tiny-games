@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#ffd93d" />
+    <title>你说我猜 — Tiny Games</title>
+    <link rel="stylesheet" href="say-it.css" />
+    <script defer src="../../pwa.js"></script>
+    <script type="module" src="say-it.js"></script>
+  </head>
+  <body>
+    <main class="game">
+      <header class="topbar">
+        <a class="back" href="../../" aria-label="回到游戏大厅">←</a>
+        <div>
+          <h1>你说我猜</h1>
+          <p>一个人描述，其他人来猜</p>
+        </div>
+      </header>
+
+      <section id="setup" class="panel">
+        <div class="hero-card">
+          <span class="hero-emoji" aria-hidden="true">🗣️</span>
+          <div>
+            <h2>准备好了吗？</h2>
+            <p>把手机交给描述者，不能说出词里的字。</p>
+          </div>
+        </div>
+
+        <fieldset>
+          <legend>想猜哪一类？</legend>
+          <div class="choice-grid" id="categories">
+            <label class="choice"><input type="checkbox" value="动物" checked /><span>🐼 动物</span></label>
+            <label class="choice"><input type="checkbox" value="食物" checked /><span>🍉 食物</span></label>
+            <label class="choice"><input type="checkbox" value="动作" checked /><span>🤸 动作</span></label>
+            <label class="choice"><input type="checkbox" value="生活" checked /><span>🪥 生活</span></label>
+            <label class="choice"><input type="checkbox" value="出行" checked /><span>🚌 出行</span></label>
+          </div>
+        </fieldset>
+
+        <fieldset>
+          <legend>来一轮多久？</legend>
+          <div class="duration-grid">
+            <label class="duration-choice"><input type="radio" name="duration" value="60" checked /><span>60 秒</span></label>
+            <label class="duration-choice"><input type="radio" name="duration" value="90" /><span>90 秒</span></label>
+          </div>
+        </fieldset>
+
+        <button id="start" class="primary" type="button">开始游戏</button>
+        <p id="setupStatus" class="setup-status" aria-live="polite"></p>
+      </section>
+
+      <section id="handoff" class="panel center-panel" hidden>
+        <span class="big-emoji" aria-hidden="true">📱</span>
+        <h2>把手机交给描述者</h2>
+        <p>其他人先不要偷看哦。</p>
+        <button id="ready" class="primary" type="button">我准备好了</button>
+      </section>
+
+      <section id="play" class="panel play-panel" hidden>
+        <div class="timer-row">
+          <strong id="timer" aria-live="polite">60</strong>
+          <span>秒</span>
+        </div>
+        <div class="word-card">
+          <span id="wordCategory" class="word-category"></span>
+          <strong id="word" class="word"></strong>
+          <p>不能说出词里的字</p>
+        </div>
+        <div class="play-actions">
+          <button id="skip" class="secondary" type="button">跳过</button>
+          <button id="correct" class="primary" type="button">猜中了 +2</button>
+        </div>
+      </section>
+
+      <section id="results" class="panel center-panel" hidden>
+        <span class="big-emoji" aria-hidden="true">✨</span>
+        <h2>时间到！</h2>
+        <div class="score-grid">
+          <div><strong id="score">0</strong><span>本轮得分</span></div>
+          <div><strong id="correctCount">0</strong><span>猜中</span></div>
+          <div><strong id="skipCount">0</strong><span>跳过</span></div>
+        </div>
+        <button id="again" class="primary" type="button">再来一局</button>
+      </section>
+    </main>
+  </body>
+</html>

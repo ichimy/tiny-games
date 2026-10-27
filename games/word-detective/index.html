@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#d9ecff" />
+    <title>猜词小侦探 — Tiny Games</title>
+    <link rel="stylesheet" href="word-detective.css" />
+    <script defer src="../../pwa.js"></script>
+    <script type="module" src="word-detective.js"></script>
+  </head>
+  <body>
+    <main class="game">
+      <header class="topbar">
+        <a class="back" href="../../" aria-label="回到游戏大厅">←</a>
+        <div>
+          <h1>猜词小侦探</h1>
+          <p>六次机会，找出隐藏的英文单词</p>
+        </div>
+      </header>
+
+      <section id="setup" class="panel">
+        <div class="detective-card">
+          <span aria-hidden="true">🔎</span>
+          <div>
+            <h2>选一个难度</h2>
+            <p>绿色是位置对了，黄色是字母在词里，灰色表示没有。</p>
+          </div>
+        </div>
+        <div class="length-grid">
+          <label><input type="radio" name="length" value="3" checked /><span><b>3</b> 个字母<small>简单</small></span></label>
+          <label><input type="radio" name="length" value="4" /><span><b>4</b> 个字母<small>进阶</small></span></label>
+          <label><input type="radio" name="length" value="5" /><span><b>5</b> 个字母<small>挑战</small></span></label>
+        </div>
+        <button id="start" class="primary" type="button">开始猜词</button>
+      </section>
+
+      <section id="game" class="panel game-panel" hidden>
+        <div class="game-status">
+          <strong id="attempt">第 1 / 6 次</strong>
+          <button id="newGame" class="text-button" type="button">换一个词</button>
+        </div>
+        <div id="board" class="board" aria-label="猜词板"></div>
+        <p id="message" class="message" aria-live="polite">输入一个单词后按回车</p>
+        <div id="keyboard" class="keyboard" aria-label="屏幕键盘"></div>
+      </section>
+
+      <section id="result" class="panel center-panel" hidden>
+        <span id="resultEmoji" class="big-emoji" aria-hidden="true">🎉</span>
+        <h2 id="resultTitle">猜中了！</h2>
+        <p id="resultAnswer">答案是 APPLE</p>
+        <button id="again" class="primary" type="button">再猜一次</button>
+      </section>
+    </main>
+  </body>
+</html>

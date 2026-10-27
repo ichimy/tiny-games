@@ -744,3 +744,58 @@
     background-color: var(--color-games-bg);
   }
 }
+
+/* ── CATALOG ───────────────────────────────────────────── */
+.catalog-filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: center;
+  margin: 0 auto 28px;
+  padding: 0 16px;
+}
+
+.catalog-filter {
+  min-height: 48px;
+  padding: 10px 20px;
+  border: 2px solid var(--border-color);
+  border-radius: var(--radius-pill);
+  background: var(--color-surface);
+  color: var(--color-ink);
+  font-family: var(--font-display);
+  font-size: var(--text-base);
+  font-weight: 800;
+  cursor: pointer;
+}
+
+.catalog-filter.is-active {
+  background: var(--color-yellow);
+  box-shadow: 0 3px 0 var(--border-color);
+}
+
+.card-thumb[data-tone="toddler"] {
+  background: linear-gradient(135deg, #ffe2e8, #dff7ec);
+}
+
+.card-thumb[data-tone="family"] {
+  background: linear-gradient(135deg, #fff0c7, #e7e2ff);
+}
+
+.card-en {
+  margin: -4px 0 10px;
+  color: var(--color-muted);
+  font-size: var(--text-xs);
+  font-weight: 800;
+  letter-spacing: 0.04em;
+}
+
+.card-meta {
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.noscript-note {
+  margin: 24px auto;
+  text-align: center;
+  font-weight: 700;
+}

@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#ffd93d" />
+    <title>谁藏起来了 — Tiny Games</title>
+    <link rel="stylesheet" href="memory-match.css" />
+    <script defer src="../../pwa.js"></script>
+    <script type="module" src="memory-match.js"></script>
+  </head>
+  <body>
+    <main class="game">
+      <header class="topbar">
+        <a class="back" href="../../" aria-label="回到游戏大厅">←</a>
+        <div class="heading">
+          <h1>谁藏起来了</h1>
+          <p>翻开两张一样的小卡片</p>
+        </div>
+        <button id="restart" class="soft-button" type="button">重开</button>
+      </header>
+
+      <div id="status" class="status" aria-live="polite">找到 0 / 8 对</div>
+      <section id="board" class="board" aria-label="翻牌配对区"></section>
+
+      <div id="win" class="win" hidden>
+        <div class="win-card">
+          <span class="win-emoji" aria-hidden="true">🎉</span>
+          <strong>全部找到啦！</strong>
+          <p>你的记忆力真棒。</p>
+          <button id="playAgain" class="primary-button" type="button">再玩一次</button>
+        </div>
+      </div>
+    </main>
+  </body>
+</html>

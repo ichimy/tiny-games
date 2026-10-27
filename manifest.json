@@ -1,0 +1,58 @@
+{
+  "name": "Tiny Games for Tiny Humans",
+  "short_name": "Tiny Games",
+  "description": "Free browser-based touch games for tiny humans. No ads. No tracking. No accounts. Just fun.",
+  "id": "./",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "any",
+  "background_color": "#fff9f0",
+  "theme_color": "#FFD93D",
+  "lang": "en",
+  "dir": "ltr",
+  "categories": ["games", "education", "kids", "entertainment"],
+  "icons": [
+    {
+      "src": "assets/android-chrome-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "assets/android-chrome-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "assets/maskable-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "maskable"
+    },
+    {
+      "src": "assets/maskable-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "Balloon Pop",
+      "short_name": "Balloons",
+      "url": "./games/balloon-pop/"
+    },
+    {
+      "name": "Paint Splat",
+      "short_name": "Paint",
+      "url": "./games/paint-splat/"
+    },
+    {
+      "name": "Music Maker",
+      "short_name": "Music",
+      "url": "./games/music-maker/"
+    }
+  ]
+}
