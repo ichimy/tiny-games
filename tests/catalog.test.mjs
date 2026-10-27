@@ -70,6 +70,6 @@ test("hub loads the registry and exposes category filters", async () => {
 test("service worker uses registry to derive every game entry", async () => {
   const sw = await readFile(new URL("../sw.js", import.meta.url), "utf8");
   assert.match(sw, /importScripts\("\.\/games\/registry\.js"\)/);
-  assert.match(sw, /CACHE_VERSION\s*=\s*"v12"/);
+  assert.match(sw, /CACHE_VERSION\s*=\s*"v13"/);
   assert.match(sw, /TINY_GAMES_CATALOG\.flatMap\(\(game\) => game\.files\)/);
 });

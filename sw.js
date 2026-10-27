@@ -14,7 +14,7 @@
 
 importScripts("./games/registry.js");
 
-const CACHE_VERSION = "v12";
+const CACHE_VERSION = "v13";
 const SHELL_CACHE = `tiny-games-shell-${CACHE_VERSION}`;
 const RUNTIME_CACHE = `tiny-games-runtime-${CACHE_VERSION}`;
 const CACHE_PREFIX = "tiny-games-";
@@ -25,6 +25,7 @@ const PRECACHE_URLS = [
   // Hub
   "./",
   "./index.html",
+  "./update.html",
   "./styles.css",
   "./styles.compat.css",
   "./script.js",
@@ -84,6 +85,15 @@ self.addEventListener("activate", (event) => {
           .map((key) => caches.delete(key))
       );
       await self.clients.claim();
+      const windows = await self.clients.matchAll({
+        type: "window",
+        includeUncontrolled: true,
+      });
+      await Promise.allSettled(
+        windows
+          .filter((client) => client.url.startsWith(self.location.origin))
+          .map((client) => client.navigate(client.url))
+      );
     })()
   );
 });

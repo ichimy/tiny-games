@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#ffd93d" />
+    <title>正在更新 Tiny Games</title>
+    <style>
+      :root {
+        font-family: "Arial Rounded MT Bold", "Nunito", Arial, sans-serif;
+        color: #2d2d2d;
+        background: #fff9f0;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        display: grid;
+        min-height: 100vh;
+        margin: 0;
+        place-items: center;
+        padding: 24px;
+        background:
+          radial-gradient(circle at 15% 15%, #ffe3e8 0, transparent 24rem),
+          radial-gradient(circle at 90% 85%, #dff4ff 0, transparent 26rem),
+          #fff9f0;
+      }
+
+      main {
+        width: min(100%, 420px);
+        padding: 30px 24px;
+        border: 3px solid #2d2d2d;
+        border-radius: 28px;
+        background: #fff;
+        text-align: center;
+        box-shadow: 0 9px 0 rgb(45 45 45 / 16%);
+      }
+
+      .icon {
+        font-size: 4rem;
+      }
+
+      h1 {
+        margin: 10px 0 8px;
+      }
+
+      p {
+        margin: 0;
+        color: #6f665c;
+        line-height: 1.6;
+      }
+
+      a {
+        display: inline-block;
+        margin-top: 18px;
+        color: #2d2d2d;
+        font-weight: 900;
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <div class="icon" aria-hidden="true">🔄</div>
+      <h1>正在更新游戏库</h1>
+      <p id="status">正在清理旧版本缓存，请稍等…</p>
+      <a id="retry" href="/" hidden>返回首页</a>
+    </main>
+    <script>
+      (async function () {
+        const status = document.getElementById("status");
+        const retry = document.getElementById("retry");
+        try {
+          const registrations = await navigator.serviceWorker.getRegistrations();
+          await Promise.all(
+            registrations.map((registration) => registration.unregister()),
+          );
+
+          const keys = await caches.keys();
+          await Promise.all(
+            keys
+              .filter((key) => key.startsWith("tiny-games-"))
+              .map((key) => caches.delete(key)),
+          );
+
+          sessionStorage.removeItem("tiny-games-sw-reload");
+          status.textContent = "更新完成，正在打开最新游戏库…";
+          window.setTimeout(() => {
+            location.replace("./?updated=" + Date.now());
+          }, 250);
+        } catch (error) {
+          status.textContent = "自动清理失败，请关闭此页后重新打开。";
+          retry.hidden = false;
+          console.warn("[update] cache reset failed:", error);
+        }
+      })();
+    </script>
+  </body>
+</html>
